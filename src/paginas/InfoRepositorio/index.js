@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Text, View, TouchableOpacity, TextInput, Alert} from 'react-native';
 import estilos from './estilos';
-import {salvarRepositoriosDoUsuario} from '../../servicos/requisicoes/repositorios';
+import {atualizarRepositoriosDoUsuario} from '../../servicos/requisicoes/repositorios';
 
 export default function InfoRepositorio({route, navigation}) {
   const {postId, id} = route.params.item;
@@ -10,7 +10,12 @@ export default function InfoRepositorio({route, navigation}) {
   const [data, setData] = useState(route.params.item.data);
 
   async function salvar() {
-    const resultado = await salvarRepositoriosDoUsuario(postId, nome, data, id);
+    const resultado = await atualizarRepositoriosDoUsuario(
+      postId,
+      nome,
+      data,
+      id,
+    );
 
     if (resultado === 'sucessso') {
       Alert.alert('Repositório atualizado!');

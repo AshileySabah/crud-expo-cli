@@ -10,13 +10,27 @@ export async function pegarRepositoriosDoUsuario(id) {
   }
 }
 
-export async function salvarRepositoriosDoUsuario(postId, name, data, id) {
+export async function atualizarRepositoriosDoUsuario(postId, name, data, id) {
   try {
     await api.put(`/repos/${id}`, {
       postId,
       name,
       data,
       id,
+    });
+    return 'sucessso';
+  } catch (error) {
+    console.log(error);
+    return 'erro';
+  }
+}
+
+export async function criarRepositoriosDoUsuario(postId, name, data) {
+  try {
+    await api.post(`/repos`, {
+      postId,
+      name,
+      data,
     });
     return 'sucessso';
   } catch (error) {
