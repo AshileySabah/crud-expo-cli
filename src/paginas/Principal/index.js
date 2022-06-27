@@ -9,10 +9,15 @@ import {
   ScrollView,
 } from 'react-native'
 import estilos from './estilos'
+import api from '../../services/api'
 
 export default function Principal({ navigation }) {
   const [nomeUsuario, setNomeUsuario] = useState('')
   const [usuario, setUsuario] = useState({})
+
+  function busca(){
+    api.get('/users').then((resp) => console.log(resp.data)).catch((error) => console.log(error))
+  }
 
   return (
     <ScrollView>
@@ -50,7 +55,7 @@ export default function Principal({ navigation }) {
           style={estilos.entrada}
         />
 
-        <TouchableOpacity style={estilos.botao}>
+        <TouchableOpacity style={estilos.botao} onPress={busca}>
           <Text style={estilos.textoBotao}>Buscar</Text>
         </TouchableOpacity>
       </View>
