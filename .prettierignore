@@ -1,0 +1,9 @@
+.expo/
+.expo-shared/
+assets/
+node_modules/
+
+package-lock.json
+package.json
+README.md
+yarn.lock

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -7,16 +7,19 @@ import {
   TextInput,
   Alert,
   ScrollView,
-} from 'react-native'
-import estilos from './estilos'
-import api from '../../services/api'
+} from 'react-native';
+import estilos from './estilos';
+import api from '../../services/api';
 
-export default function Principal({ navigation }) {
-  const [nomeUsuario, setNomeUsuario] = useState('')
-  const [usuario, setUsuario] = useState({})
+export default function Principal({navigation}) {
+  const [nomeUsuario, setNomeUsuario] = useState('');
+  const [usuario, setUsuario] = useState({});
 
-  function busca(){
-    api.get('/users').then((resp) => console.log(resp.data)).catch((error) => console.log(error))
+  function busca() {
+    api
+      .get('/users')
+      .then(resp => console.log(resp.data))
+      .catch(error => console.log(error));
   }
 
   return (
@@ -60,5 +63,5 @@ export default function Principal({ navigation }) {
         </TouchableOpacity>
       </View>
     </ScrollView>
-  )
+  );
 }
