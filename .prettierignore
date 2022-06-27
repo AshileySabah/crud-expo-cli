@@ -7,3 +7,5 @@ package-lock.json
 package.json
 README.md
 yarn.lock
+
+# prettier --write "**/*.{css,js,json}"
